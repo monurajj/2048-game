@@ -164,11 +164,15 @@ function keyupHandler(event){
     generate()
     if (checkForWin()){
         document.body.removeEventListener('keyup', keyupHandler);
-        document.querySelector('#result').textContent = "YOU WIN!"
+        const resultElement = document.querySelector('#result');
+        resultElement.textContent = "YOU WIN!";
+        resultElement.classList.add('win');
     }
     else if (isGameOver()){
         document.body.removeEventListener('keyup', keyupHandler);
-        document.querySelector('#result').innerText = "Game Over"
+        const resultElement = document.querySelector('#result');
+        resultElement.innerText = "Game Over";
+        resultElement.classList.add('over');
     }
 }
 document.body.addEventListener('keyup', keyupHandler);
